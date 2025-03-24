@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔝 Static Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  color: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 50; /* Keeps it above other elements */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 📱 Mobile menu styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 101;
+  }
+
+  .nav-links.mobile-menu li {
+    margin: 0.5rem 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* 🔥 Main Layout */
+main {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 120px); /* Full height minus navbar & footer */
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding-top: 8rem; /* 🛠️ Fix: Push content below navbar */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* 🚀 Left Section */
+main .left {
+  background-color: black;
+  flex-basis: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  position: relative;
+}
+
+main .left .code {
+  width: 100%;
+  height: 75%;
+  border-radius: 0.7rem;
+}
+
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  color: white;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: black;
+}
+
+/* 🔘 Centering Review Button */
+main .left .review {
+  width: 50%;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+main .left .review:hover {
+  background-color: #e0e0e0;
+}
+/* 🖥️ Right Section (Fixed Navbar Overlap) */
+main .right {
+  flex-basis: 70%;
+  background-color: black;
+  border-radius: 0.7rem;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  color: white;
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Prevents content from overflowing */
+  position: relative;
+}
+
+/* 🦾 Static Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+/* 📱 Mobile View Fix */
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto; /* Allow scrolling on small screens */
+  }
+
+  main {
+    flex-direction: column;
+    height: auto; /* Allow full scroll */
+  }
+
+  main .left, main .right {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer {
+    position: relative;
+  }
+}
+
+/* 💡 Loading Indicator */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5rem;
+  color: white;
+}
