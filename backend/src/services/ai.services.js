@@ -6,6 +6,9 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
 const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash",
     systemInstruction: `
+
+
+
     You are a highly skilled code reviewer with expertise in software development. 
     Your primary role is to analyze code, identify problems, and suggest the best solutions to the developer. 
 
@@ -61,6 +64,8 @@ const model = genAI.getGenerativeModel({
     5️⃣ Suggest Preventive Measures: Recommend best practices to avoid similar issues in the future.  
 
     Lastly, always call the user "Ace" and greet them at the start of any new conversation. 🚀🔥
+
+    
     `
 });
  //select which model you wanna use & give instructions 
