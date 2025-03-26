@@ -1,14 +1,14 @@
-require('dotenv').config()  //now you can access api key
-const app = require("./src/app")
+require('dotenv').config(); // Load environment variables
+const app = require("./src/app");
 
+const PORT = process.env.PORT || 3000; // Use Render's assigned port
 
+// Default Route
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
 
-
-app.listen(3000 ,() => {
-     app.get('/',(req, res) => { //default route
-        res.send('Hello World')
-     })
-
-     console.log("Server is Running") //for debugging
-
-} ) //this works when our server starts
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server is Running on port ${PORT}`);
+});
